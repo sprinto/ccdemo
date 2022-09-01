@@ -1,0 +1,30 @@
+project_name: ccdemo
+env_files:
+  # This should point to the file where the github access token is stored
+  github_token: ~/.github/token_codecamp
+before:
+  hooks:
+    - go mod tidy
+    # This will log into to AWS.
+    - aws ecr get-login-password | docker login -u AWS --password-stdin "https://$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.$(aws configure get region).amazonaws.com"
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    id: ccdemo
+    main: ./cmd/ccdemo  
+    binary: ccdemo
+
+release:
+  disable: true
+
+dockers:
+  # Change image template to the name of your docker repository
+  - image_templates: [ "571908524012.dkr.ecr.eu-north-1.amazonaws.com/babtist/ccdemo:{{ .Tag }}"]
+    dockerfile: docker/Dockerfile
+    goos: linux
+    goarch: amd64
+    ids:
+    - ccdemo
+    skip_push: false
