@@ -11,7 +11,7 @@ imageCredentials:
 images:
   ccdemo:
     name: ccdemo
-    tag: 0.0.1-beta1
+    tag: 0.0.1-beta2
 
 
 replicaCount: 1
