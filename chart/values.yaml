@@ -5,13 +5,13 @@ imageCredentials:
     url: 571908524012.dkr.ecr.eu-north-1.amazonaws.com
     imagePullPolicy: IfNotPresent
     pullSecret: regcred
-  repoPath: babtist  
+  repoPath: tomhol  
 
 
 images:
   ccdemo:
     name: ccdemo
-    tag: 0.0.1-beta1
+    tag: 0.0.1-beta3
 
 
 replicaCount: 1

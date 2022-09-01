@@ -21,10 +21,11 @@ release:
 
 dockers:
   # Change image template to the name of your docker repository
-  - image_templates: [ "571908524012.dkr.ecr.eu-north-1.amazonaws.com/babtist/ccdemo:{{ .Tag }}"]
+  - image_templates: [ "571908524012.dkr.ecr.eu-north-1.amazonaws.com/tomhol/ccdemo:{{ .Tag }}"]
     dockerfile: docker/Dockerfile
     goos: linux
     goarch: amd64
     ids:
     - ccdemo
     skip_push: false
+    

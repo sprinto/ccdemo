@@ -9,7 +9,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
-      labels:
+      labels: 
 {{ include "sinch.cc2022.ccdemo.labels" . | indent 8 }}
     spec:
       imagePullSecrets:
