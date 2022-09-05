@@ -129,6 +129,8 @@ This will deploy your app in our common Kubernetes cluster.
 ### Create namespace (only first time)
 Replace `ccdemo`below (two places) with the your app name.
 
+Note that the secret expires regularily
+
 ```
 $ kubectl create ns ccdemo
 
